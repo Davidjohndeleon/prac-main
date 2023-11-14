@@ -5,7 +5,8 @@
     @section('content')
     
     <h1 style="text-align: center">Product</h1>
-    
+    <form action="{{route('saveupdatedProducts')}}" method="post">
+        @csrf
     <div class="jumbotron">
       <table class="table table-striped">
     <thread>
@@ -25,21 +26,15 @@
             <td>{{ $product->Description }}</td>
             <td>{{ $product->Price }}</td>
             <td>{{ $product->QuantityInStock }}</td>
+            <td><a href="{{route('updateProducts', $product->id)}}"><button type="button" class="btn btn-warning"> update </button></a></td>
+            <td><a href="{{route('removeProducts', $product->id)}}"><button type="button" class="btn btn-danger"> update </button></a></td>
         </tr>
         @endforeach
         
     
     </tbody>
 
-    <tbody>
-        <tr>
-            <td>sdsdsdsd</td>
-            <td>sdsdsdsd</td>
-            <td>sdsdsdsd</td>   
-            <td>sdsdsdsd</td>
 
-        </tr>
-    </tbody>
     
     </div>
     
@@ -57,9 +52,6 @@
     
                 <label class="span 2" ><h6>Quantity in Stock</h6></label>
                 <input class="inputs" type="text" name="QuantityInStock" value = "{{ $product -> QuantityInStock }}" placeholder="Input here..">
-    
-    
-    
     
                 <div class="span 1">
                     <select name="type" id="type">
