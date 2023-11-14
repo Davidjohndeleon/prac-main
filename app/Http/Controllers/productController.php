@@ -27,6 +27,7 @@ class productController extends Controller
     function delete_products($id){
         $this->products->deleteProducts($id);
         return back();
+        
     }
     function update_products($id){
         $products = $this->products->updateProducts($id);
