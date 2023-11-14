@@ -8,5 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class orderdetail extends Model
 {
     use HasFactory;
-    protected $orderdetail_ID,$order_ID, $product_id,$quantity,$subtotal;
+    protected $fillable = [
+        'orderdetail_ID',
+        'order_ID', 
+        'product_id',
+        'quantity',
+        'subtotal'        
+    ];
+
+    protected $table = 'orderdetail';
 }

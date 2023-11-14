@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\orderdetail;
+
 use Illuminate\Http\Request;
-use App\Models\orderdetails;  
+use App\Models\orderdetail;  
 
 
 class orderdetailController extends Controller
 {
     public function index(){
-        return view('orderdetail')->with(["orderdetails" => orderdetails::first()]);
+        return view('orderdetail')->with(["orderdetails" => orderdetail::all()]);
     }
 }
