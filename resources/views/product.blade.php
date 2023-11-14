@@ -47,16 +47,16 @@
             <form>
     
                 <label class="span 2" ><h6>Product Name</h6></label>
-                <input class="inputs" type="text" placeholder="Input here..">
+                <input class="inputs" type="text" name="product_name" placeholder="Input here..">
     
                 <label class="span 2" ><h6>Description</h6></label>
-                <input class="inputs" type="text" placeholder="Input here..">
+                <input class="inputs" type="text" name="Description" placeholder="Input here..">
     
                 <label class="span 2" ><h6>Price</h6></label>
-                <input class="inputs" type="text" placeholder="Input here..">
+                <input class="inputs" type="text" name="Price" placeholder="Input here..">
     
                 <label class="span 2" ><h6>Quantity in Stock</h6></label>
-                <input class="inputs" type="text" placeholder="Input here..">
+                <input class="inputs" type="text" name="QuantityInStock" placeholder="Input here..">
     
     
     
