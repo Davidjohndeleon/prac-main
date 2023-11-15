@@ -5,12 +5,12 @@
     @section('content')
     
     <h1 style="text-align: center">Product</h1>
-    <form action="{{route('saveupdatedProducts')}}" method="post">
-        @csrf
+    
     <div class="jumbotron">
       <table class="table table-striped">
     <thread>
         <tr>
+            <th>Product ID</th>
             <th>Product Name</th>
             <th>Description</th>
             <th>Price</th>
@@ -22,12 +22,13 @@
     <tbody>
         @foreach ($products as $product)
         <tr>
+            <td>{{ $product->product_id }}</td>
             <td>{{ $product->Product_Name }}</td>
             <td>{{ $product->Description }}</td>
             <td>{{ $product->Price }}</td>
             <td>{{ $product->QuantityInStock }}</td>
             <td><a href="{{route('updateProducts', $product->id)}}"><button type="button" class="btn btn-warning"> update </button></a></td>
-            <td><a href="{{route('removeProducts', $product->id)}}"><button type="button" class="btn btn-danger"> update </button></a></td>
+            <td><a href="{{route('removeProducts', $product->id)}}"><button type="button" class="btn btn-danger"> delete </button></a></td>
         </tr>
         @endforeach
         
@@ -39,28 +40,22 @@
     </div>
     
         <div class="row">
-            <form>
+            <form action="{{route('saveProducts')}}" method="post">@csrf
     
                 <label class="span 2" ><h6>Product Name</h6></label>
-                <input class="inputs" type="text" name="product_name" value = "{{ $product -> product_name }}" placeholder="Input here..">
+                <input class="inputs" type="text" name="Product_Name" >
     
                 <label class="span 2" ><h6>Description</h6></label>
-                <input class="inputs" type="text" name="Description" value = "{{ $product -> Description }}" placeholder="Input here..">
+                <input class="inputs" type="text" name="Description" >
     
                 <label class="span 2" ><h6>Price</h6></label>
-                <input class="inputs" type="text" name="Price" value = "{{ $product -> Price }}" placeholder="Input here..">
+                <input class="inputs" type="text" name="Price" >
     
                 <label class="span 2" ><h6>Quantity in Stock</h6></label>
-                <input class="inputs" type="text" name="QuantityInStock" value = "{{ $product -> QuantityInStock }}" placeholder="Input here..">
+                <input class="inputs" type="text" name="QuantityInStock" >
     
-                <div class="span 1">
-                    <select name="type" id="type">
-                        <option value="Add" pattern="ADD" >ADD</option>
-                        <option value="Remove" pattern="Remove" >REMOVE</option>
-                    </select>
-                </div>
                 <div class="span 2" >
-                    <button type="button" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>

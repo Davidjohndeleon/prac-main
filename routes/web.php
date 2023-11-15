@@ -23,11 +23,11 @@ use App\Http\Controllers\orderdetailController;
 
 
 
-Route::get('/product',[productController::class,'index'])->name('product');
+Route::get('/',[productController::class,'index'])->name('product');
 Route::post('/save-products',[productController::class,'save_products'])->name('saveProducts');
 Route::get('/delete-products/{id}',[productController::class,'delete_products'])->name('removeProducts');
 Route::get('/update-products/{id}',[productController::class,'update_products'])->name('updateProducts');
-Route::get('/save-updated-products',[productController::class, 'save_updated_products'])->name('saveUpdatedProducts');
+Route::post('/save-updated-products',[productController::class, 'save_updated_products'])->name('saveUpdatedProducts');
 
 
 

@@ -11,12 +11,12 @@ class productController extends Controller
         $this->products = new Products;
     }
     function index(){
-        $products = $this->products->getProducts();
-        return view("product",compact("products"));
+        return view('product')->with(["products"=>Products::all()]);
     }
+   // function index(){$products = $this->products->getProducts();return view("product",compact("products"));}
     function save_products(Request $request){
         $data = [
-             'product_name' => $request->product_name,
+             'Product_Name' => $request->Product_Name,
              'Description'=> $request->Description,
              'Price'=> $request->Price,
              'QuantityInStock' => $request->QuantityInStock,
@@ -35,7 +35,7 @@ class productController extends Controller
     }
     function save_updated_products(Request $request){
         $data = [
-            'products_name'=> $request->update_product_name,
+            'Product_Name'=> $request->update_Product_name,
             'Description'=> $request->update_Description,
             'Price'=> $request->update_Price,
             'QuantityInStock'=> $request->update_QuantityInStock,
@@ -43,6 +43,5 @@ class productController extends Controller
         $this->products->updatedProducts($data, $request->id);
         return redirect()->route('product');
     }
- //   public function index(){
- //       return view('product')->with(["products"=>Products::all()]);}
+    //public function index(){return view('product')->with(["products"=>Products::all()]);}
 }
