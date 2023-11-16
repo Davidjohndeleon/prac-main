@@ -20,7 +20,7 @@ class Products extends Model
     }
     public function deleteProducts($id){
         $products = $this->find($id);
-        return $this->delete();
+        $products->delete();
     }
     public function updateProducts($id){
         return $this->find($id);
